@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>plug-in</key>
+	<dict>
+		<key>extensions</key>
+		<dict>
+			<key>Xcode.FileDataType.TypeScript</key>
+			<dict>
+				<key>id</key>
+				<string>Xcode.FileDataType.TypeScript</string>
+				<key>localizedDescription</key>
+				<string>TypeScript Document</string>
+				<key>name</key>
+				<string>File type for TypeScript</string>
+				<key>point</key>
+				<string>Xcode.FileDataType</string>
+				<key>typeConformedTo</key>
+				<array>
+					<dict>
+						<key>typeIdentifier</key>
+						<string>public.source-code</string>
+					</dict>
+				</array>
+				<key>typeIdentifier</key>
+				<string>public.typescript-source</string>
+				<key>version</key>
+				<string>1.0</string>
+			</dict>
+			<key>Xcode.FileDataTypeDetector.TypeScript</key>
+			<dict>
+				<key>detectedTypeIdentifier</key>
+				<string>public.typescript-source</string>
+				<key>id</key>
+				<string>Xcode.FileDataTypeDetector.TypeScript</string>
+				<key>matchesExtension</key>
+				<string>ts</string>
+				<key>point</key>
+				<string>Xcode.FileDataTypeDetector</string>
+			</dict>
+			<key>Xcode.SourceCodeLanguage.TypeScript</key>
+			<dict>
+				<key>commentSyntax</key>
+				<array>
+					<dict>
+						<key>prefix</key>
+						<string>//</string>
+					</dict>
+				</array>
+				<key>conformsTo</key>
+				<array>
+					<dict>
+						<key>identifier</key>
+						<string>Xcode.SourceCodeLanguage.Generic</string>
+					</dict>
+				</array>
+				<key>fileDataType</key>
+				<array>
+					<dict>
+						<key>identifier</key>
+						<string>public.typescript-source</string>
+					</dict>
+				</array>
+				<key>id</key>
+				<string>Xcode.SourceCodeLanguage.TypeScript</string>
+				<key>languageName</key>
+				<string>TypeScript</string>
+				<key>languageSpecification</key>
+				<string>xcode.lang.typescript</string>
+				<key>name</key>
+				<string>TypeScript Language</string>
+				<key>point</key>
+				<string>Xcode.SourceCodeLanguage</string>
+				<key>version</key>
+				<string>1.0</string>
+			</dict>
+			<key>Xcode.IDEKit.Inspector.FileIdentityAndType.public.typescript-source</key>
+			<dict>
+				<key>fileDataType</key>
+				<string>public.typescript-source</string>
+				<key>group</key>
+				<string>Xcode.IDEKit.Inspector.FileInspectorTypeGroup.Sourcecode.Various</string>
+				<key>id</key>
+				<string>Xcode.IDEKit.Inspector.FileIdentityAndType.public.typescript-source</string>
+				<key>name</key>
+				<string>File Inspector Entry - TypeScript Document</string>
+				<key>point</key>
+				<string>Xcode.IDEKit.FileInspectorTypeGroupEntry</string>
+				<key>version</key>
+				<string>0.1</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,210 @@
+// TypeScript
+(
+
+/****************************************************************************/
+// MARK: TypeScript keywords
+/****************************************************************************/
+
+    {
+        Identifier = "xcode.lang.typescript.identifier";
+        Syntax = {
+            StartChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
+            Words = (
+                "break",
+                "case",
+                "catch",
+                "class",
+                "const",
+                "continue",
+                "debugger",
+                "default",
+                "delete",
+                "do",
+                "else",
+                "enum",
+                "export",
+                "extends",
+                "false",
+                "finally",
+                "for",
+                "function",
+                "if",
+                "import",
+                "in",
+                "instanceof",
+                "new",
+                "null",
+                "return",
+                "super",
+                "switch",
+                "this",
+                "throw",
+                "true",
+                "try",
+                "typeof",
+                "var",
+                "void",
+                "while",
+                "with",
+             );
+            Type = "xcode.syntax.keyword";
+            AltType = "xcode.syntax.identifier";    // non-keywords are identifiers
+        };
+    },
+
+
+/****************************************************************************/
+// MARK: TypeScript Syntax Coloring
+/****************************************************************************/
+
+    {
+        Identifier = "xcode.lang.typescript";
+        Description = "TypeScript Coloring";
+        BasedOn = "xcode.lang.simpleColoring";
+        IncludeInMenu = YES;
+        UsesCLikeIndentation = YES;
+        Name = "TypeScript";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            IncludeRules = (
+                "xcode.lang.typescript.function",
+				"xcode.lang.typescript.function.closure",
+                "xcode.lang.typescript.block",
+                "xcode.lang.typescript.bracketexpr",
+                "xcode.lang.typescript.parenexpr",
+            );
+            Type = "xcode.syntax.plain";
+        };
+    },
+    
+    // The following rule returns tokens to the other rules
+    {
+        Identifier = "xcode.lang.typescript.lexer";
+        Syntax = {
+            IncludeRules = (
+                "xcode.lang.comment",
+                "xcode.lang.comment.singleline",
+                "xcode.lang.string",
+                "xcode.lang.character",
+                "xcode.lang.typescript.identifier",
+                "xcode.lang.number",
+            );
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.typescript.function";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Rules = (
+                "xcode.lang.typescript.function.declarator",
+                "xcode.lang.typescript.block",
+            );
+            Type = "xcode.syntax.definition.function";
+        };
+    },
+    
+     {
+        Identifier = "xcode.lang.typescript.function.declarator";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Rules = (
+                "function",
+                "xcode.lang.typescript.function.name",
+                "xcode.lang.typescript.parenexpr",
+            );
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.typescript.function.closure";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Rules = (
+                "xcode.lang.typescript.function.closure.declarator",
+                "xcode.lang.typescript.block",
+            );
+            Type = "xcode.syntax.definition.function";
+        };
+    },
+    
+     {
+        Identifier = "xcode.lang.typescript.function.closure.declarator";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Rules = (
+                "xcode.lang.typescript.function.name",
+				"=",
+                "function",
+                "xcode.lang.typescript.parenexpr",
+            );
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.typescript.function.name";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Rules = (
+                "xcode.lang.typescript.identifier",
+				"xcode.lang.typescript.function.name.more*",
+            );
+            Type = "xcode.syntax.name.partial";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.typescript.function.name.more";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Rules = (
+                ".",
+				"xcode.lang.typescript.identifier",
+            );
+            Type = "xcode.syntax.name.partial";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.typescript.block";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Start = "{";
+            End = "}";
+            Foldable = YES;
+            Recursive = YES;
+            IncludeRules = (
+                "xcode.lang.typescript.function",
+				"xcode.lang.typescript.function.closure",
+                "xcode.lang.typescript.bracketexpr",
+                "xcode.lang.typescript.parenexpr",
+            );
+        };
+    },
+    {
+        Identifier = "xcode.lang.typescript.parenexpr";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Start = "(";
+            End = ")";
+            Recursive = YES;
+            IncludeRules = (
+                "xcode.lang.typescript.bracketexpr",
+            );
+        };
+    },
+    {
+        Identifier = "xcode.lang.typescript.bracketexpr";
+        Syntax = {
+            Tokenizer = "xcode.lang.typescript.lexer";
+            Start = "[";
+            End = "]";
+            Recursive = YES;
+            IncludeRules = (
+                "xcode.lang.typescript.parenexpr",
+            );
+        };
+    },
+)
+
